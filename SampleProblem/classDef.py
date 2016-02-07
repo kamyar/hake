@@ -3,6 +3,9 @@ class Matrix():
 		self.row = x
 		self.column = y
 		self.matrix = []
+		self.firstPointer = -1
+		self.secondPointer = -1
+		self.lines = []
 
 	def addLine(self, line):
 		self.matrix.append(list(line))
@@ -17,11 +20,29 @@ class Matrix():
 			return '-'
 
 	def startSearching(self):
+		push = False
 		for i in range(self.row):
 			for j in range(self.column):
 				if self.isCellBlack(i, j):
-					self.iterateFromPoint(i, j)
-					#print i,j
+					self.marking(i, j)
+				if self.isCellBlack(i, j) == False:
+					push = True
+				if j == self.column - 1 or push == True:
+					t = (i, self.firstPointer, self.secondPointer)
+					if self.firstPointer != -1 and self.secondPointer != -1:
+						self.lines.append(t)
+					self.firstPointer = -1
+					self.secondPointer = -1
+					push = False
+		print self.lines
+
+	
+	def marking(self, i, j):
+		if self.firstPointer == -1:
+				self.firstPointer = j
+		else:
+				self.secondPointer = j
+
 
 
 	def isCellBlack(self, i, j):
@@ -49,7 +70,7 @@ class Matrix():
 	def signCellAs(self, i, j, mark):
 		self.matrix[i][j] = mark
 
-	def signSquareAsMarked(self, startRow, startColumn, squareRadius):
+	def ignSquareAsMarked(self, startRow, startColumn, squareRadius):
 		for i in range(startRow, startRow + squareRadius):
 			for j in range (startColumn, startColumn + squareRadius):
 				self.signCellAs(i, j, '-')
