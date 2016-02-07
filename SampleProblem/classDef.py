@@ -30,7 +30,7 @@ class Matrix():
 			for j in range(self.column):
 				if self.isCellEqualTo(i, j, '#'):
 					self.iterateFromPoint(i, j)
-					#print i,j
+					#sys.stdout.write i,j
 
 
 	def isCellEqualTo(self, i, j, mark):
@@ -48,7 +48,7 @@ class Matrix():
 		self.commandList.append("ERASE_CELL %d %d" % (row, column))
 
 	def percentageOfBlackInSquare(self, startRow, startColumn, squareRadius):
-		#print "Starting from ", startRow, startColumn
+		#sys.stdout.write "Starting from ", startRow, startColumn
 
 		totalBlackCount = 0
 		totalCellCount = 0
@@ -74,7 +74,7 @@ class Matrix():
 	def iterateFromPoint(self, i, j):
 		foundRow, foundColumn, bestFoundRadius = -1, -1, -1
 
-		for squareRadius in range(3, min(self.row, self.column) + 1, 2):
+		for squareRadius in range(1, min(self.row, self.column) + 1, 2):
 			if i + squareRadius > self.row or j + squareRadius > self.column:
 				continue
 
@@ -83,7 +83,8 @@ class Matrix():
 					foundRow, foundColumn, bestFoundRadius = i, j, squareRadius
 			else:
 				break
+
 		if bestFoundRadius != -1:
-			#print "FOUND ", foundRow, foundColumn, bestFoundRadius
+			#sys.stdout.write "FOUND ", foundRow, foundColumn, bestFoundRadius
 			self.addSquarePaint(foundRow, foundColumn, bestFoundRadius)
 			self.signSquareAsMarked(foundRow, foundColumn, bestFoundRadius)

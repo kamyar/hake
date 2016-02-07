@@ -27,3 +27,5 @@ while True:
 matrix.startSearching()
 
 print matrix
+
+inputFile.close()
