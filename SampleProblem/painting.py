@@ -25,3 +25,5 @@ while True:
 #print matrix.cell(2, 2)
 
 matrix.startSearching()
+
+print matrix
