@@ -30,14 +30,14 @@ class Matrix():
 				if self.isCellBlack(j, i) == False:
 					push = True
 				if j == self.row - 1 or push == True:
-					t = ("Column", i, self.firstPointer, self.secondPointer)
+					t = (i, self.firstPointer, self.secondPointer)
 					if self.firstPointer != -1 and self.secondPointer != -1:
 						self.VerticalLines.append(t)
 					self.firstPointer = -1
 					self.secondPointer = -1
 					push = False
-		print self.VerticalLines
-		print len(self.VerticalLines)
+		#print self.VerticalLines
+		#print len(self.VerticalLines)
 	
 	def markingVert(self, i, j):
 		if self.firstPointer == -1:
@@ -56,14 +56,14 @@ class Matrix():
 				if self.isCellBlack(i, j) == False:
 					push = True
 				if j == self.column - 1 or push == True:
-					t = ("Row", i, self.firstPointer, self.secondPointer)
+					t = (i, self.firstPointer, self.secondPointer)
 					if self.firstPointer != -1 and self.secondPointer != -1:
 						self.HorizontalLines.append(t)
 					self.firstPointer = -1
 					self.secondPointer = -1
 					push = False
-		print self.HorizontalLines
-		print len(self.HorizontalLines)
+		#print self.HorizontalLines
+		#print len(self.HorizontalLines)
 
 	
 	def markingHor(self, i, j):
