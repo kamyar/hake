@@ -1,7 +1,17 @@
 import fileinput
 import sys
+import sys
 
-theMatrix = [['.' for i in range(80)] for j in range(14)]
+if len(sys.argv) < 2 or len(sys.argv) > 3:
+	sys.exit('Usage: %s input-name' % sys.argv[0])
+
+#HACKIN' IN PROGRESS
+
+inputFile = open(sys.argv[1], "r")
+
+[x, y] = map(int, inputFile.readline().strip("\n").split(" "))
+
+theMatrix = [['.' for i in range(y)] for j in range(x)]
 
 passFirst = True
 
@@ -39,7 +49,7 @@ for line in fileinput.input():
 		paintLine(int(commandLine[1]), int(commandLine[2]), int(commandLine[3]), int(commandLine[4]))
 
 outputFile = open("produced.in", "w")
-outputFile.write("14 80\n")
+outputFile.write("%s %s\n" %(x, y))
 
 for line in theMatrix:
 	outputFile.write(''.join(line))
