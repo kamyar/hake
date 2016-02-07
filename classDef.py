@@ -67,11 +67,9 @@ class Matrix():
 
 			everySquareList.append((i, j, squareRadius))
 
-			if self.percentageOfBlackInSquare(i, j, squareRadius) > 0.9:
+			if self.percentageOfBlackInSquare(i, j, squareRadius) > 0.7:
 				if squareRadius > bestFoundRadius:
 					foundRow, foundColumn, bestFoundRadius = i, j, squareRadius
-			else:
-				break
 
 		if bestFoundRadius != -1:
 			print "FOUND ", foundRow, foundColumn, bestFoundRadius
