@@ -29,6 +29,7 @@ for line in fileinput.input():
 	commandLine = line.strip("\n").split(" ")
 
 	if commandLine[0] == 'ERASE_CELL':
+		print commandLine
 		eraseCell(int(commandLine[1]), int(commandLine[2]))
 	elif commandLine[0] == 'PAINT_SQUARE':
 		paintSquare(int(commandLine[1]), int(commandLine[2]), int(commandLine[3]))

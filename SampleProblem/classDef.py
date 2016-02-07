@@ -61,7 +61,7 @@ class Matrix():
 		return float(totalBlackCount / float(totalCellCount))
 
 	def signCellAs(self, i, j, mark):
-		if self.matrix[i][j] != '#':
+		if self.matrix[i][j] != '#' and self.matrix[i][j] != '-':
 			self.addErasePaint(i, j)
 
 		self.matrix[i][j] = mark
