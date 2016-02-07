@@ -25,5 +25,10 @@ while True:
 #print matrix
 
 #print matrix.cell(2, 2)
+print "Horizontal Search"
+matrix.startSearchingHorizontal()
+print "\n"
+print "Vertical Search"
+matrix.startSearchingVertical()
 
-matrix.startSearching()
+
