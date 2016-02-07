@@ -19,7 +19,9 @@ def paintSquare(i, j, radius):
 			theMatrix[x][y] = '#'
 
 def paintLine(startRow, startColumn, endRow, endColumn):
-	pass
+	for x in range(startRow, endRow + 1):
+		for y in range(startColumn, endColumn + 1):
+			theMatrix[x][y] = '#'
 
 for line in fileinput.input():
 	if passFirst == True:
