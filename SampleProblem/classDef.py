@@ -42,6 +42,7 @@ class Matrix():
 	def markingVert(self, i, j):
 		if self.firstPointer == -1:
 				self.firstPointer = j
+				self.secondPointer = j
 		else:
 				self.secondPointer = j
 
@@ -69,6 +70,7 @@ class Matrix():
 	def markingHor(self, i, j):
 		if self.firstPointer == -1:
 				self.firstPointer = j
+				self.secondPointer = j
 		else:
 				self.secondPointer = j
 

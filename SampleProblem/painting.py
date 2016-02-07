@@ -26,14 +26,14 @@ while True:
 #print "Horizontal Search"
 matrix.startSearchingHorizontal()
 #print "\n"
-#
+
 #print "Vertical Search"
 matrix.startSearchingVertical()
 #print "\n"
 
 which = -1
 
-if len(matrix.HorizontalLines) >= len(matrix.VerticalLines): 
+if len(matrix.VerticalLines) >= len(matrix.HorizontalLines): 
 	#print "Vertical Lines"
 	#print matrix.VerticalLines
 	which = 0
@@ -42,11 +42,11 @@ else:
 	#print matrix.HorizontalLines
 	which = 1
 
-if which == 0:
+if which == 1:
 	for i in range(len(matrix.VerticalLines)):
 		print "PAINT_LINE " + str(matrix.VerticalLines[i][0]) + " " + str(matrix.VerticalLines[i][1]) + " " + str(matrix.VerticalLines[i][0]) + " " + str(matrix.VerticalLines[i][2])
 
-elif which == 1:
+elif which == 0:
 	for i in range(len(matrix.HorizontalLines)):
 		print "PAINT_LINE " + str(matrix.HorizontalLines[i][0]) + " " + str(matrix.HorizontalLines[i][1]) + " " + str(matrix.HorizontalLines[i][0]) + " " + str(matrix.HorizontalLines[i][2])
 
