@@ -4,10 +4,10 @@
 # f = open("busy_day.in", "rb")
 f = open("small.inp", "rb")
 rows, cols, drones_count, turns_count, max_payload = map(int, f.readline().strip().split())
-print rows, cols, drones_count, turns_count, max_payload
+# print rows, cols, drones_count, turns_count, max_payload
 
 product_type_count, = map(int, f.readline().strip().split())
-print product_type_count
+# print product_type_count
 
 product_weights = map(int, f.readline().strip().split())
 
@@ -25,7 +25,7 @@ for w in range(warehouse_count):
   warehouses_dict["stock"] = product_stock
   warehouses.append(warehouses_dict)
 
-print warehouses
+# print warehouses
 
 
 order_count = int(f.readline().strip())
@@ -41,4 +41,15 @@ for o in range(order_count):
   order_dict["requests"] = order_products
   orders.append(order_dict)
 
-print orders
+
+my_drones = []
+
+for d in range(drones_count):
+  curr_drone = {}
+  curr_drone["coord"] = warehouses[0]["coord"]
+  curr_drone["busy"] = 0
+  curr_drone["dest"] = None
+  curr_drone["curr_w"] = 0
+  curr_drone["id"] = d
+  my_drones.append(curr_drone)
+# print orders
