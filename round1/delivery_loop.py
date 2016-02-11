@@ -17,6 +17,29 @@ so = sorted(orders, key=lambda x: len(x["requests"]))
 # orders.sort()
 
 print so 
+print warehouses
+def i_have_an_order(order,request,warehouse,fuck):
+  warehouse=tuple(warehouse["coord"])
+  order=tuple(order["coord"])
+  if warehouse not in fuck:
+    fuck[warehouse]={}
+  if request not in fuck[warehouse]:
+    fuck[warehouse][request]={}
+  if order not in fuck[warehouse][request]:
+    fuck[warehouse][request][order]=1
+  else:
+    fuck[warehouse][request][order]+=1
+fuck={}
+for order in so:
+  sorted_warehouses = sorted(warehouses, key = lambda x : distance(x,order))
+  for request in order["requests"]:
+    for warehouse in sorted_warehouses:
+      if warehouse["stock"][request]:
+        warehouse["stock"][request]-=1
+        i_have_an_order(order,request,warehouse,fuck)
+        break
+
+print fuck 
 
 #assume some calculations done here
 
