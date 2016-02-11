@@ -2,36 +2,12 @@ import fileinput
 import sys
 import sys
 
-if len(sys.argv) < 2 or len(sys.argv) > 3:
-	sys.exit('Usage: %s input-name' % sys.argv[0])
-
-#HACKIN' IN PROGRESS
-
-inputFile = open(sys.argv[1], "r")
-
-[x, y] = map(int, inputFile.readline().strip("\n").split(" "))
 
 theMatrix = [['.' for i in range(y)] for j in range(x)]
 
 passFirst = True
 
-def eraseCell(i, j):
-	theMatrix[i][j] = '.'
 
-def paintSquare(i, j, radius):
-	startRow = i - radius
-	startColumn = j - radius
-	endRow = i + radius
-	endColumn = j + radius
-
-	for x in range(startRow, endRow + 1):
-		for y in range(startColumn, endColumn + 1):
-			theMatrix[x][y] = '#'
-
-def paintLine(startRow, startColumn, endRow, endColumn):
-	for x in range(startRow, endRow + 1):
-		for y in range(startColumn, endColumn + 1):
-			theMatrix[x][y] = '#'
 
 for line in fileinput.input():
 	if passFirst == True:

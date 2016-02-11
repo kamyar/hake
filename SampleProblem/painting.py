@@ -26,7 +26,4 @@ while True:
 
 matrix.startSearching()
 
-inputFile.close()
-
 print matrix
-
