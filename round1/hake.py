@@ -2,7 +2,7 @@
 
 
 # f = open("busy_day.in", "rb")
-f = open("small.inp", "rb")
+f = open("mother_of_all_warehouses.in", "rb")
 rows, cols, drones_count, turns_count, max_payload = map(int, f.readline().strip().split())
 # print rows, cols, drones_count, turns_count, max_payload
 
