@@ -39,6 +39,7 @@ for o in range(order_count):
   order_dict = {}
   order_dict["coord"] = order_coord
   order_dict["requests"] = order_products
+  order_dict["id"] = o
   orders.append(order_dict)
 
 

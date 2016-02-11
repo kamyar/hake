@@ -19,15 +19,36 @@ so = sorted(orders, key=lambda x: len(x["requests"]))
 print so 
 
 #assume some calculations done here
-#fuck freshmonous
+
+
+commands = []
+
+# def commandize(drone, warehouse, orders):
+#   pass
+
 while turns_count>0:
-  for drone in drones:
-    if drone["busy"]: continue
-    chosen_warehouse=min([])
-    # warehouses.closest(drone.position())
-    chosen_orders=orders.getOrderFor(chosen_warehouse,drone.capacity_left)
-    results+=drone.commandize(chosen_orders)
-return results
+  min_busy = sys.maxint
+  for drone in my_drones:
+    # if drone["busy"] < min_busy:
+    min_busy = min(min_busy, drone["busy"])
+
+    if not drone["busy"]:
+      chosen_warehouse=min([ distance(drone, w) for w in warehouses ])
+      # chosen_orders=
+      # orders.getOrderFor(chosen_warehouse,drone.capacity_left)
+      # results+=drone.commandize(chosen_orders)
+      print chosen_warehouse
+
+  for drone in my_drones:
+    drone["busy"] -= min_busy
+
+  raw_input()
+
+  turns_count -= min_busy
+  turns_count-=1 #  Temp
+
+
+# return results
 
 # turns_count = 1
 # while turns_count > 0:
