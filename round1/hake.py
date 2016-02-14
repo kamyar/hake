@@ -23,6 +23,8 @@ for w in range(warehouse_count):
   warehouses_dict = {}
   warehouses_dict["coord"] = coords
   warehouses_dict["stock"] = product_stock
+  warehouses_dict["id"] = w
+
   warehouses.append(warehouses_dict)
 
 # print warehouses
